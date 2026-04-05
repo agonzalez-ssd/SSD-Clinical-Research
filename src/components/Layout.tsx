@@ -15,6 +15,7 @@ export default function Layout({ children }: LayoutProps) {
     { path: "/", label: "Home" },
     { path: "/current-trials", label: "Current Trials" },
     { path: "/for-researchers", label: "For Researchers" },
+    { path: "/new-patient-registration", label: "New Patient Registration" },
     { path: "/about-contact", label: "About & Contact" },
   ];
 

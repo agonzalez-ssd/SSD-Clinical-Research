@@ -2,52 +2,142 @@ import { useState } from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
-const departments = ["All Trials", "Dermatology", "Cardiology", "Oncology", "Neurology"];
+const departments = [
+  "All Trials",
+  "Musculoskeletal",
+  "Cardiovascular",
+  "Oncology",
+  "Infectious Disease",
+  "Endocrine",
+  "Metabolic",
+];
 
-const trials = [
+interface Trial {
+  id: number;
+  title: string;
+  department: string;
+  status: string;
+  description: string;
+  size: "large" | "small" | "wide";
+  location?: string;
+  link?: string;
+}
+
+const trials: Trial[] = [
   {
     id: 1,
-    title: "Advanced Atopic Dermatitis Biological Study",
-    department: "Dermatology",
-    status: "Recruiting",
-    location: "Birmingham area",
+    title: "Osteoarthritis",
+    department: "Musculoskeletal",
+    status: "Enrolling",
     description:
-      "Evaluating the long-term efficacy and safety of a novel monoclonal antibody for adults with moderate-to-severe atopic dermatitis who are inadequately controlled by topical therapies.",
-    featured: true,
+      "Inflammation of one or more joints. It is the most common form of arthritis that affects joints in the hand, spine, knees and hips.",
     size: "large",
+    location: "Birmingham area",
   },
   {
     id: 2,
-    title: "Post-MI Care Regimen Phase III",
-    department: "Cardiology",
-    status: "Recruiting",
+    title: "High Cholesterol",
+    department: "Cardiovascular",
+    status: "Enrolling",
     description:
-      "Investigating a combined pharmaceutical and digital monitoring approach for post-myocardial infarction recovery protocols.",
-    size: "small",
+      "An abnormal amount of cholesterol in blood cells and plasma. Associated with the risk of atherosclerosis.",
+    link: "https://clinicaltrials.gov/ct2/show/NCT05142722",
+    size: "small" ,
   },
   {
     id: 3,
-    title: "Early Stage Lung Cancer Immunotherapy",
+    title: "Cancer Biomarkers",
     department: "Oncology",
-    status: "Full / Waitlist",
+    status: "Enrolling",
     description:
-      "Evaluating the safety of a new immunotherapy combined with standard care for early-stage patients.",
-    size: "small",
+      "A blood draw to help discover molecules for early cancer detection.",
+    size: "small" ,
   },
   {
     id: 4,
-    title: "Metabolic Response in Type 2 Diabetes",
-    department: "Neurology",
-    status: "Recruiting",
-    researchId: "AL-8842",
+    title: "Cancer / Oncology Trials",
+    department: "Oncology",
+    status: "Enrolling",
+    description: "Lung, Lymphoma, and Colorectal Cancer.",
+    link: "https://clinicaltrials.gov/ct2/show/NCT04892472",
+    size: "wide" ,
+  },
+  {
+    id: 5,
+    title: "Flu Treatment",
+    department: "Infectious Disease",
+    status: "Enrolling",
     description:
-      "A focused study on glycemic variability using next-gen continuous monitoring hardware. Participants receive compensation for time and travel.",
-    duration: "12 Months",
-    participants: "120 Participants",
-    featured: true,
-    size: "wide",
+      "A disease caused by virus infecting the respiratory tract. If you're experiencing Flu-like symptoms after hours, please get in contact with us as soon as possible.",
+    link: "https://clinicaltrials.gov/ct2/show/NCT03969212",
+    size: "small" ,
+  },
+  {
+    id: 6,
+    title: "COVID-19 Treatment",
+    department: "Infectious Disease",
+    status: "Enrolling",
+    description:
+      "Finding a solution to lessen the burden of COVID-19.",
+    size: "small" ,
+  },
+  {
+    id: 7,
+    title: "Hypothyroidism",
+    department: "Endocrine",
+    status: "Enrolling",
+    description:
+      "A dysfunction in thyroid gland function.",
+    size: "small" ,
+  },
+  {
+    id: 8,
+    title: "High Blood Pressure",
+    department: "Cardiovascular",
+    status: "Enrolling",
+    description:
+      "High pressure in the arteries (vessels that carry blood from the heart to the rest of the body).",
+    size: "small" ,
+  },
+  {
+    id: 9,
+    title: "COVID-19 Prevention",
+    department: "Infectious Disease",
+    status: "Enrolling",
+    description:
+      "A novel prevention medication to curtail the spread of COVID-19.",
+    size: "small" ,
+  },
+  {
+    id: 10,
+    title: "Weight Loss",
+    department: "Metabolic",
+    status: "Enrolling",
+    description:
+      "Clinical studies focused on safe and effective weight management solutions. Compensation may be available for qualified participants.",
+    size: "large" ,
+    location: "Birmingham area",
+  },
+  {
+    id: 11,
+    title: "Healthy Volunteers",
+    department: "All",
+    status: "Always Open",
+    description:
+      "Healthy Volunteers are always welcome to be a part of our various studies. No specific condition required — help advance medical research while receiving compensation.",
+    size: "wide" ,
   },
 ];
+
+const departmentColors: Record<string, string> = {
+  Musculoskeletal: "bg-secondary-container text-on-secondary-container",
+  Cardiovascular: "bg-tertiary-container text-on-tertiary-container",
+  Oncology: "bg-surface-container-highest text-on-surface-variant",
+  "Infectious Disease": "bg-primary-container text-on-primary-container",
+  Endocrine: "bg-primary-fixed text-on-primary-fixed",
+  Metabolic: "bg-secondary-container text-on-secondary-container",
+  All: "bg-surface-container-high text-on-surface-variant",
+};
 
 export default function CurrentTrials() {
   const [activeFilter, setActiveFilter] = useState("All Trials");
@@ -67,7 +157,7 @@ export default function CurrentTrials() {
     <Layout>
       <SEO
         title="Current Clinical Trials"
-        description="Browse active clinical trials in Birmingham, Alabama. Search by condition, medication, or specialty including dermatology, cardiology, oncology, and neurology."
+        description="Browse active clinical trials in Birmingham, Alabama. Studies in osteoarthritis, high cholesterol, cancer, flu treatment, hypothyroidism, weight loss, and more."
         canonical="/current-trials"
       />
       <div className="max-w-7xl mx-auto px-8 py-16">
@@ -123,13 +213,19 @@ export default function CurrentTrials() {
         {/* Trials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {filteredTrials.map((trial) => {
+            const chipColor =
+              departmentColors[trial.department] ||
+              "bg-surface-container-high text-on-surface-variant";
+
             if (trial.size === "large") {
               return (
                 <div key={trial.id} className="md:col-span-8 group">
                   <div className="bg-surface-container-lowest rounded-xl p-10 h-full border border-outline-variant/15 transition-all hover:border-primary/30 flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between mb-8">
-                        <span className="px-3 py-1 bg-secondary-container text-on-secondary-container text-[0.65rem] font-bold uppercase tracking-widest rounded-sm">
+                        <span
+                          className={`px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest rounded-sm ${chipColor}`}
+                        >
                           {trial.status}
                         </span>
                         {trial.location && (
@@ -148,10 +244,30 @@ export default function CurrentTrials() {
                         {trial.description}
                       </p>
                     </div>
-                    <div className="flex items-center justify-end border-t border-outline-variant/10 pt-8">
-                      <button className="bg-primary text-white px-8 py-3 rounded font-bold transition-all hover:bg-primary-container active:scale-[0.98]">
-                        View Details
-                      </button>
+                    <div className="flex items-center justify-between border-t border-outline-variant/10 pt-8">
+                      <span
+                        className={`px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest rounded-sm ${chipColor}`}
+                      >
+                        {trial.department}
+                      </span>
+                      <div className="flex items-center gap-4">
+                        {trial.link && (
+                          <a
+                            href={trial.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary text-sm font-bold flex items-center gap-1 hover:underline"
+                          >
+                            ClinicalTrials.gov
+                            <span className="material-symbols-outlined text-sm">
+                              open_in_new
+                            </span>
+                          </a>
+                        )}
+                        <button className="bg-primary text-white px-8 py-3 rounded font-bold transition-all hover:bg-primary-container active:scale-[0.98]">
+                          View Details
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -160,58 +276,48 @@ export default function CurrentTrials() {
 
             if (trial.size === "wide") {
               return (
-                <div key={trial.id} className="md:col-span-8 group">
-                  <div className="bg-surface-container-lowest rounded-xl p-10 h-full border border-outline-variant/15 flex flex-col md:flex-row gap-8 items-center">
-                    <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden bg-slate-100">
-                      <img
-                        alt="Microscopic view of biological cells in clinical research"
-                        className="w-full h-full object-cover"
-                        src="/images/cells.jpg"
-                        loading="lazy"
-                      />
+                <div key={trial.id} className="md:col-span-12 group">
+                  <div className="bg-primary-container/10 rounded-xl p-10 h-full border border-primary/10 flex flex-col md:flex-row gap-8 items-center">
+                    <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <span className="material-symbols-outlined text-primary text-3xl">
+                        {trial.title === "Healthy Volunteers"
+                          ? "volunteer_activism"
+                          : "science"}
+                      </span>
                     </div>
                     <div className="flex-grow">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[0.6rem] font-bold uppercase tracking-tighter rounded-sm">
-                          Featured Trial
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="text-2xl font-headline font-bold text-on-surface">
+                          {trial.title}
+                        </h3>
+                        <span
+                          className={`px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-tighter rounded-sm ${chipColor}`}
+                        >
+                          {trial.status}
                         </span>
-                        {trial.researchId && (
-                          <span className="text-xs font-bold text-outline uppercase tracking-widest">
-                            Research ID: {trial.researchId}
-                          </span>
-                        )}
                       </div>
-                      <h3 className="text-2xl font-headline font-bold text-on-surface mb-2">
-                        {trial.title}
-                      </h3>
-                      <p className="text-on-surface-variant text-sm leading-relaxed mb-4">
+                      <p className="text-on-surface-variant leading-relaxed mb-4">
                         {trial.description}
                       </p>
-                      <div className="flex items-center gap-6">
-                        {trial.duration && (
-                          <span className="text-xs font-medium text-on-surface-variant flex items-center gap-1">
-                            <span className="material-symbols-outlined text-[16px]">
-                              calendar_today
+                      <div className="flex items-center gap-4">
+                        {trial.link && (
+                          <a
+                            href={trial.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary text-sm font-bold flex items-center gap-1 hover:underline"
+                          >
+                            View on ClinicalTrials.gov
+                            <span className="material-symbols-outlined text-sm">
+                              open_in_new
                             </span>
-                            {trial.duration}
-                          </span>
+                          </a>
                         )}
-                        {trial.participants && (
-                          <span className="text-xs font-medium text-on-surface-variant flex items-center gap-1">
-                            <span className="material-symbols-outlined text-[16px]">
-                              group
-                            </span>
-                            {trial.participants}
-                          </span>
-                        )}
-                        <button className="ml-auto text-primary text-sm font-bold flex items-center gap-1 hover:underline">
-                          Details
-                          <span className="material-symbols-outlined text-sm">
-                            arrow_forward
-                          </span>
-                        </button>
                       </div>
                     </div>
+                    <button className="bg-primary text-white px-8 py-3 rounded font-bold transition-all hover:bg-primary-container active:scale-[0.98] flex-shrink-0">
+                      Learn More
+                    </button>
                   </div>
                 </div>
               );
@@ -222,7 +328,9 @@ export default function CurrentTrials() {
               <div key={trial.id} className="md:col-span-4 group">
                 <div className="bg-surface-container-low rounded-xl p-8 h-full transition-all hover:bg-white border border-transparent hover:border-outline-variant/30 flex flex-col">
                   <div className="flex items-center gap-2 mb-6">
-                    <span className="px-3 py-1 bg-tertiary-container text-on-tertiary-container text-[0.65rem] font-bold uppercase tracking-widest rounded-sm">
+                    <span
+                      className={`px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest rounded-sm ${chipColor}`}
+                    >
                       {trial.department}
                     </span>
                   </div>
@@ -235,25 +343,46 @@ export default function CurrentTrials() {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between text-xs font-semibold text-on-surface-variant uppercase">
                       <span>Status</span>
-                      <span
-                        className={
-                          trial.status === "Recruiting"
-                            ? "text-primary"
-                            : "text-secondary"
-                        }
-                      >
-                        {trial.status}
-                      </span>
+                      <span className="text-primary">{trial.status}</span>
                     </div>
-                    <button className="w-full py-3 text-primary font-bold border-b border-primary/20 hover:border-primary transition-all text-sm text-left">
-                      View Details
-                    </button>
+                    {trial.link ? (
+                      <a
+                        href={trial.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3 text-primary font-bold border-b border-primary/20 hover:border-primary transition-all text-sm text-left flex items-center gap-1"
+                      >
+                        View on ClinicalTrials.gov
+                        <span className="material-symbols-outlined text-sm">
+                          open_in_new
+                        </span>
+                      </a>
+                    ) : (
+                      <button className="w-full py-3 text-primary font-bold border-b border-primary/20 hover:border-primary transition-all text-sm text-left">
+                        View Details
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
+
+        {/* No results */}
+        {filteredTrials.length === 0 && (
+          <div className="text-center py-20">
+            <span className="material-symbols-outlined text-6xl text-outline mb-4">
+              search_off
+            </span>
+            <h3 className="font-headline text-xl font-bold mb-2">
+              No trials found
+            </h3>
+            <p className="text-on-surface-variant">
+              Try adjusting your search or filter criteria.
+            </p>
+          </div>
+        )}
 
         {/* CTA Section */}
         <section className="mt-24 rounded-2xl bg-primary-container p-12 text-center text-on-primary-container relative overflow-hidden">
