@@ -9,7 +9,7 @@ export default function AboutContact() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-8">
               <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">
-                Southern Skies Clinical Research
+                Southern Skies Research
               </span>
               <h1 className="font-headline text-editorial-lg font-extrabold text-on-surface mb-8">
                 Our Mission to advance clinical research in Alabama.

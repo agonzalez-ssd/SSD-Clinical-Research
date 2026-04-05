@@ -32,7 +32,7 @@ export default function Layout({ children }: LayoutProps) {
               clinical_notes
             </span>
             <span className="text-xl font-bold tracking-tight text-blue-800 font-headline">
-              Southern Skies Clinical Research
+              Southern Skies Research
             </span>
           </Link>
 
@@ -116,7 +116,7 @@ export default function Layout({ children }: LayoutProps) {
                   clinical_notes
                 </span>
                 <span className="text-lg font-bold text-blue-900 font-headline">
-                  Southern Skies Clinical Research
+                  Southern Skies Research
                 </span>
               </div>
               <p className="text-slate-500 max-w-xs text-sm leading-relaxed">
@@ -217,7 +217,7 @@ export default function Layout({ children }: LayoutProps) {
 
           <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-xs">
-              &copy; 2025 Southern Skies Clinical Research. All rights reserved.
+              &copy; 2025 Southern Skies Research. All rights reserved.
               HIPAA Compliant.
             </p>
             <div className="flex gap-6">

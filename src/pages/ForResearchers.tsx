@@ -12,7 +12,7 @@ export default function ForResearchers() {
               Partner With Us
             </h1>
             <p className="text-lg leading-relaxed text-on-surface-variant max-w-2xl mb-10">
-              Southern Skies Clinical Research provides CROs and Sponsors with a
+              Southern Skies Research provides CROs and Sponsors with a
               premier site-level environment in Birmingham, AL. We bridge the
               gap between high-precision research and patient accessibility
               through institutional-grade infrastructure and localized care.
@@ -230,7 +230,7 @@ export default function ForResearchers() {
               Drive Your Next Study Forward
             </h2>
             <p className="text-on-primary-container/80 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-              Southern Skies Clinical Research provides CROs and Sponsors with a
+              Southern Skies Research provides CROs and Sponsors with a
               premier site-level environment in Alabama. We bridge the gap
               between high-precision research and patient accessibility through
               institutional-grade infrastructure and localized care.

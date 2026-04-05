@@ -24,7 +24,7 @@ export default function Home() {
               in Birmingham
             </h1>
             <p className="text-lg text-on-surface-variant leading-relaxed mb-10 max-w-lg">
-              Southern Skies Clinical Research bridges the gap between
+              Southern Skies Research bridges the gap between
               breakthrough research and local patient care. Join a community
               dedicated to shaping the future of global healthcare.
             </p>
@@ -49,16 +49,13 @@ export default function Home() {
       {/* Trust Network */}
       <section className="bg-surface-container-low py-12">
         <div className="max-w-7xl mx-auto px-8">
-          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-outline mb-8">
-            Trusted Member of the Network
-          </p>
           <div className="flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
-            <div className="flex items-center gap-4 grayscale">
-              <span className="material-symbols-outlined text-4xl">
-                travel_explore
+            <div className="flex items-center gap-4">
+              <span className="material-symbols-outlined text-4xl text-primary">
+                science
               </span>
               <span className="text-2xl font-headline font-bold text-on-surface">
-                ResearchMatch
+                Central Alabama Research
               </span>
             </div>
           </div>
