@@ -6,16 +6,45 @@
 @tailwind utilities;
 
 @layer base {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-surface text-on-surface font-body antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3 {
     font-family: "Manrope", sans-serif;
   }
 
+  /* Optimize image rendering */
+  img {
+    content-visibility: auto;
+  }
+
   .material-symbols-outlined {
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+
+  /* Skip to main content for accessibility */
+  .skip-to-main {
+    @apply absolute left-[-9999px] z-[999] p-4 bg-primary text-white no-underline;
+  }
+
+  .skip-to-main:focus {
+    @apply left-1/2 -translate-x-1/2 top-4;
+  }
+
+  /* Focus indicators for accessibility */
+  :focus-visible {
+    outline: 3px solid #004cb9;
+    outline-offset: 2px;
   }
 }
 
@@ -24,6 +53,12 @@
     font-size: 3.5rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 640px) {
+    .text-editorial-lg {
+      font-size: 2.5rem;
+    }
   }
 
   .text-editorial-md {

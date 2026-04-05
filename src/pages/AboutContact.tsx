@@ -1,8 +1,14 @@
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
 export default function AboutContact() {
   return (
     <Layout>
+      <SEO
+        title="About & Contact"
+        description="Contact Southern Skies Research in Birmingham, Alabama. HIPAA-compliant inquiry form, AAHRPP accredited, FDA regulated protocols. Call (205) 555-0123."
+        canonical="/about-contact"
+      />
       <div className="max-w-7xl mx-auto px-8 py-20">
         {/* Hero Section: Our Mission */}
         <section className="mb-32">

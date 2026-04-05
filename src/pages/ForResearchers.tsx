@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
 export default function ForResearchers() {
   return (
     <Layout>
+      <SEO
+        title="For Researchers & Sponsors"
+        description="Partner with Southern Skies Research for clinical trials in Birmingham, AL. 98% data quality score, HIPAA-compliant facilities, and rapid recruitment via ResearchMatch."
+        canonical="/for-researchers"
+      />
       <div className="max-w-7xl mx-auto px-8 py-16">
         {/* Hero: Partner With Us */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32">
@@ -37,7 +43,8 @@ export default function ForResearchers() {
               <img
                 className="w-full h-full object-cover"
                 src="/images/researcher-lab.jpg"
-                alt="Medical researcher using microscopy equipment"
+                alt="Medical researcher using microscopy equipment at Southern Skies Research"
+                loading="lazy"
               />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-secondary-container p-8 rounded-lg shadow-lg max-w-[240px]">

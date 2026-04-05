@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
 export default function Home() {
   return (
     <Layout>
+      <SEO
+        title="Clinical Trials in Birmingham, AL"
+        description="Southern Skies Research bridges the gap between breakthrough research and local patient care. Join HIPAA-compliant clinical trials in dermatology, cardiology, oncology, and neurology in Birmingham, Alabama."
+        canonical="/"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[751px] flex items-center overflow-hidden bg-surface-container">
         <div className="absolute inset-0 z-0">
           <img
             className="w-full h-full object-cover opacity-60 mix-blend-multiply"
             src="/images/hero-lab.jpg"
-            alt="Modern clinical laboratory with researchers"
+            alt="Modern clinical laboratory with researchers in Birmingham Alabama"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent" />
         </div>

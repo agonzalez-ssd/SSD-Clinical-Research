@@ -20,8 +20,13 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Skip to main content - accessibility */}
+      <a href="#main-content" className="skip-to-main">
+        Skip to main content
+      </a>
+
       {/* Navigation */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-200">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-200" role="banner">
         <div className="flex justify-between items-center w-full px-8 max-w-7xl mx-auto h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
@@ -104,10 +109,10 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1">{children}</main>
+      <main id="main-content" className="flex-1" role="main">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-slate-100 w-full py-12 px-8 border-t border-slate-200">
+      <footer className="bg-slate-100 w-full py-12 px-8 border-t border-slate-200" role="contentinfo">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
             <div>

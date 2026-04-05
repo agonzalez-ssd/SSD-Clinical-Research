@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
 const departments = ["All Trials", "Dermatology", "Cardiology", "Oncology", "Neurology"];
 
@@ -64,6 +65,11 @@ export default function CurrentTrials() {
 
   return (
     <Layout>
+      <SEO
+        title="Current Clinical Trials"
+        description="Browse active clinical trials in Birmingham, Alabama. Search by condition, medication, or specialty including dermatology, cardiology, oncology, and neurology."
+        canonical="/current-trials"
+      />
       <div className="max-w-7xl mx-auto px-8 py-16">
         {/* Hero Search */}
         <div className="mb-16">
@@ -158,9 +164,10 @@ export default function CurrentTrials() {
                   <div className="bg-surface-container-lowest rounded-xl p-10 h-full border border-outline-variant/15 flex flex-col md:flex-row gap-8 items-center">
                     <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden bg-slate-100">
                       <img
-                        alt="Clinical research imagery"
+                        alt="Microscopic view of biological cells in clinical research"
                         className="w-full h-full object-cover"
                         src="/images/cells.jpg"
+                        loading="lazy"
                       />
                     </div>
                     <div className="flex-grow">
