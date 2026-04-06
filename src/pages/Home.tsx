@@ -83,7 +83,7 @@ export default function Home() {
               <p className="text-xs text-on-surface-variant uppercase tracking-widest font-semibold mt-1">Years in Dermatology</p>
             </div>
             <div>
-              <p className="text-3xl font-bold font-headline text-primary">4</p>
+              <p className="text-3xl font-bold font-headline text-primary">8</p>
               <p className="text-xs text-on-surface-variant uppercase tracking-widest font-semibold mt-1">Clinical Locations</p>
             </div>
             <div>
@@ -204,7 +204,7 @@ export default function Home() {
                     <span className="material-symbols-outlined text-primary">location_on</span>
                   </div>
                   <div>
-                    <h4 className="font-bold text-on-surface text-lg mb-1">4 Strategic Locations</h4>
+                    <h4 className="font-bold text-on-surface text-lg mb-1">8 Strategic Locations</h4>
                     <p className="text-on-surface-variant">Established dermatology clinics across Alabama with high patient volume and diverse demographics.</p>
                   </div>
                 </div>

@@ -29,8 +29,8 @@ export default function OurTeam() {
           <div className="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10 shadow-sm">
             <div className="h-80 bg-surface-container-high overflow-hidden">
               <img
-                src="/images/hero-lab.jpg"
-                alt="Dr. Mario Maruthur"
+                src="/images/dr-mario-maruthur.jpg"
+                alt="Dr. Mario Maruthur, MD — Board-Certified Dermatologist and Principal Investigator"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />

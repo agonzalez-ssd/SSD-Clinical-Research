@@ -59,7 +59,7 @@ export default function AboutContact() {
       <section className="py-24 bg-surface-container-low">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="font-headline text-3xl font-bold text-on-surface mb-4">Our Locations</h2>
-          <p className="text-on-surface-variant text-lg mb-12 max-w-2xl">Our established dermatology practice operates across four Alabama locations, each equipped for clinical research.</p>
+          <p className="text-on-surface-variant text-lg mb-12 max-w-2xl">Our established dermatology practice operates across eight Alabama locations, each equipped for clinical research.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {locations.map((loc) => (
               <div key={loc.name} className={`p-6 rounded-xl ${loc.primary ? "bg-surface-container-lowest border-l-4 border-primary shadow-sm" : "bg-surface-container-lowest border border-outline-variant/10"}`}>
