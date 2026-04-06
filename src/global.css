@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
 
 @tailwind base;
@@ -6,24 +6,22 @@
 @tailwind utilities;
 
 @layer base {
-  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-surface text-on-surface font-body antialiased;
+    @apply bg-background text-on-background font-body antialiased;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     font-family: "Manrope", sans-serif;
   }
 
-  /* Optimize image rendering */
   img {
     content-visibility: auto;
   }
@@ -32,18 +30,15 @@
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   }
 
-  /* Skip to main content for accessibility */
   .skip-to-main {
     @apply absolute left-[-9999px] z-[999] p-4 bg-primary text-white no-underline;
   }
-
   .skip-to-main:focus {
     @apply left-1/2 -translate-x-1/2 top-4;
   }
 
-  /* Focus indicators for accessibility */
   :focus-visible {
-    outline: 3px solid #004cb9;
+    outline: 3px solid #004981;
     outline-offset: 2px;
   }
 }
@@ -54,8 +49,7 @@
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
-
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     .text-editorial-lg {
       font-size: 2.5rem;
     }
@@ -67,19 +61,15 @@
   }
 
   .bg-primary-gradient {
-    background: linear-gradient(135deg, #004cb9 0%, #1a64e3 100%);
+    background: linear-gradient(135deg, #004981 0%, #1b61a2 100%);
   }
 
   .ghost-border {
-    border: 1px solid rgba(194, 198, 215, 0.2);
+    border: 1px solid rgba(194, 198, 212, 0.15);
   }
 
   .glass-nav {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-  }
-
-  .scale-98:active {
-    transform: scale(0.98);
   }
 }

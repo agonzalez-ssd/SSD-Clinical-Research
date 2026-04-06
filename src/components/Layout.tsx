@@ -8,100 +8,83 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-
   const isActive = (path: string) => location.pathname === path;
 
   const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/current-trials", label: "Current Trials" },
-    { path: "/for-researchers", label: "For Researchers" },
-    { path: "/new-patient-registration", label: "New Patient Registration" },
+    { path: "/for-patients", label: "For Patients" },
+    { path: "/for-sponsors", label: "For Sponsors" },
+    { path: "/therapeutic-areas", label: "Therapeutic Areas" },
+    { path: "/our-team", label: "Our Team" },
     { path: "/about-contact", label: "About & Contact" },
   ];
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Skip to main content - accessibility */}
-      <a href="#main-content" className="skip-to-main">
-        Skip to main content
-      </a>
+      <a href="#main-content" className="skip-to-main">Skip to main content</a>
 
-      {/* Navigation */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-200" role="banner">
-        <div className="flex justify-between items-center w-full px-8 max-w-7xl mx-auto h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <span
-              className="material-symbols-outlined text-blue-700"
-              style={{ fontSize: "2rem" }}
-            >
-              clinical_notes
-            </span>
-            <span className="text-xl font-bold tracking-tight text-blue-800 font-headline">
-              Southern Skies Research
-            </span>
+      <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/15 shadow-sm" role="banner">
+        <nav className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+          <Link to="/" className="text-xl font-bold tracking-tight text-slate-900 font-headline">
+            Southern Skies Research
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium py-1 transition-colors duration-200 ${
+                className={`text-sm font-medium transition-colors duration-200 ${
                   isActive(link.path)
-                    ? "text-blue-700 border-b-2 border-blue-700 font-bold"
+                    ? "text-blue-700 font-semibold border-b-2 border-blue-700 pb-1"
                     : "text-slate-600 hover:text-blue-600"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
+          </div>
+
+          <div className="flex items-center gap-3">
             <Link
-              to="/about-contact"
-              className="bg-primary-gradient text-white px-6 py-2.5 rounded-md font-semibold text-sm transition-all active:scale-95"
+              to="/research-registry"
+              className="hidden sm:inline-flex bg-primary-gradient text-on-primary px-6 py-2.5 rounded-md font-semibold text-sm hover:opacity-90 transition-all active:scale-95"
             >
-              Join Study
+              Join Registry
             </Link>
-          </nav>
+            <button
+              className="lg:hidden p-2 text-slate-600"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              <span className="material-symbols-outlined text-2xl">
+                {mobileMenuOpen ? "close" : "menu"}
+              </span>
+            </button>
+          </div>
+        </nav>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2 text-on-surface"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            <span className="material-symbols-outlined">
-              {mobileMenuOpen ? "close" : "menu"}
-            </span>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-slate-100 shadow-lg">
+          <div className="lg:hidden bg-white border-t border-slate-100 shadow-lg">
             <nav className="flex flex-col py-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-8 py-3 text-base font-medium ${
-                    isActive(link.path)
-                      ? "text-blue-700 bg-blue-50 font-bold"
-                      : "text-slate-600 hover:bg-slate-50"
+                  className={`px-6 py-3 text-base font-medium ${
+                    isActive(link.path) ? "text-blue-700 bg-blue-50 font-bold" : "text-slate-600 hover:bg-slate-50"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="px-8 pt-4">
+              <div className="px-6 pt-4">
                 <Link
-                  to="/about-contact"
+                  to="/research-registry"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-center bg-primary-gradient text-white px-6 py-3 rounded-md font-semibold"
                 >
-                  Join Study
+                  Join Registry
                 </Link>
               </div>
             </nav>
@@ -109,138 +92,52 @@ export default function Layout({ children }: LayoutProps) {
         )}
       </header>
 
-      {/* Main Content */}
-      <main id="main-content" className="flex-1" role="main">{children}</main>
+      <main id="main-content" className="flex-1 pt-20" role="main">{children}</main>
 
-      {/* Footer */}
-      <footer className="bg-slate-100 w-full py-12 px-8 border-t border-slate-200" role="contentinfo">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
-            <div>
-              <div className="flex items-center gap-2 mb-6">
-                <span className="material-symbols-outlined text-blue-800">
-                  clinical_notes
-                </span>
-                <span className="text-lg font-bold text-blue-900 font-headline">
-                  Southern Skies Research
-                </span>
-              </div>
-              <p className="text-slate-500 max-w-xs text-sm leading-relaxed">
-                Dedicated to the highest standards of clinical excellence and
-                patient-focused research in the Birmingham area.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-12">
-              <div className="flex flex-col gap-4">
-                <span className="text-xs font-bold text-on-surface uppercase tracking-widest">
-                  Trials
-                </span>
-                <Link
-                  to="/current-trials"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  Current Trials
-                </Link>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  Trial History
-                </a>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  Patient Safety
-                </a>
-              </div>
-              <div className="flex flex-col gap-4">
-                <span className="text-xs font-bold text-on-surface uppercase tracking-widest">
-                  Researchers
-                </span>
-                <Link
-                  to="/for-researchers"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  For Researchers
-                </Link>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  Lab Facilities
-                </a>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  Grants
-                </a>
-              </div>
-              <div className="flex flex-col gap-4">
-                <span className="text-xs font-bold text-on-surface uppercase tracking-widest">
-                  Legal
-                </span>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm underline"
-                >
-                  Privacy Policy
-                </a>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  Compliance
-                </a>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  Terms
-                </a>
-              </div>
-              <div className="flex flex-col gap-4">
-                <span className="text-xs font-bold text-on-surface uppercase tracking-widest">
-                  Support
-                </span>
-                <Link
-                  to="/about-contact"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  Contact
-                </Link>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-blue-600 transition-colors text-sm"
-                >
-                  FAQ
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-xs">
-              &copy; 2025 Southern Skies Research. All rights reserved.
-              HIPAA Compliant.
+      <footer className="w-full border-t border-slate-200 bg-slate-100" role="contentinfo">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
+          <div>
+            <div className="text-lg font-semibold text-slate-800 font-headline mb-4">Southern Skies Research</div>
+            <p className="text-slate-500 text-sm leading-relaxed mb-4">
+              The clinical research division of Southern Skies Dermatology &amp; Surgery. Advancing dermatological science through precision research and established patient care.
             </p>
-            <div className="flex gap-6">
-              <a
-                href="#"
-                className="text-slate-500 hover:text-blue-600 transition-colors"
-              >
-                <span className="material-symbols-outlined text-xl">share</span>
+            <div className="flex gap-4">
+              <a href="mailto:research@southernskiesresearch.com" className="text-slate-400 hover:text-primary transition-colors">
+                <span className="material-symbols-outlined">mail</span>
               </a>
-              <a
-                href="mailto:info@southernskiesresearch.com"
-                className="text-slate-500 hover:text-blue-600 transition-colors"
-              >
-                <span className="material-symbols-outlined text-xl">mail</span>
+              <a href="tel:2059002000" className="text-slate-400 hover:text-primary transition-colors">
+                <span className="material-symbols-outlined">call</span>
               </a>
             </div>
           </div>
+          <div>
+            <h5 className="text-slate-900 font-bold text-xs mb-6 uppercase tracking-widest">For Patients</h5>
+            <ul className="space-y-3">
+              <li><Link to="/research-registry" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Research Registry</Link></li>
+              <li><Link to="/for-patients" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Why Participate</Link></li>
+              <li><Link to="/therapeutic-areas" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Conditions We Study</Link></li>
+              <li><Link to="/about-contact" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Contact Us</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-slate-900 font-bold text-xs mb-6 uppercase tracking-widest">For Sponsors</h5>
+            <ul className="space-y-3">
+              <li><Link to="/for-sponsors" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Capabilities</Link></li>
+              <li><Link to="/our-team" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Our Investigators</Link></li>
+              <li><Link to="/about-contact" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Request Feasibility</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-slate-900 font-bold text-xs mb-6 uppercase tracking-widest">Legal</h5>
+            <ul className="space-y-3">
+              <li><a href="#" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Privacy Policy</a></li>
+              <li><a href="#" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">HIPAA Statement</a></li>
+              <li><a href="#" className="text-slate-500 hover:text-blue-600 transition-colors text-sm">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-slate-200 py-6 text-center">
+          <p className="text-slate-500 text-xs">&copy; 2025 Southern Skies Research. A division of Southern Skies Dermatology &amp; Surgery. All rights reserved. HIPAA Compliant.</p>
         </div>
       </footer>
     </div>

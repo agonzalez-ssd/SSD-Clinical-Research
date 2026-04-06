@@ -3,12 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
 
-// Lazy load pages for code splitting
 const Home = lazy(() => import("./pages/Home"));
-const CurrentTrials = lazy(() => import("./pages/CurrentTrials"));
-const ForResearchers = lazy(() => import("./pages/ForResearchers"));
+const ForPatients = lazy(() => import("./pages/ForPatients"));
+const ForSponsors = lazy(() => import("./pages/ForSponsors"));
+const TherapeuticAreas = lazy(() => import("./pages/TherapeuticAreas"));
+const OurTeam = lazy(() => import("./pages/OurTeam"));
+const ResearchRegistry = lazy(() => import("./pages/ResearchRegistry"));
 const AboutContact = lazy(() => import("./pages/AboutContact"));
-const PatientRegistration = lazy(() => import("./pages/PatientRegistration"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function PageLoader() {
@@ -27,10 +28,12 @@ export default function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/current-trials" element={<CurrentTrials />} />
-            <Route path="/for-researchers" element={<ForResearchers />} />
+            <Route path="/for-patients" element={<ForPatients />} />
+            <Route path="/for-sponsors" element={<ForSponsors />} />
+            <Route path="/therapeutic-areas" element={<TherapeuticAreas />} />
+            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/research-registry" element={<ResearchRegistry />} />
             <Route path="/about-contact" element={<AboutContact />} />
-            <Route path="/new-patient-registration" element={<PatientRegistration />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
