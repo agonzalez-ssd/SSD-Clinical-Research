@@ -25,7 +25,7 @@ export default function Layout({ children }: LayoutProps) {
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/15 shadow-sm" role="banner">
         <nav className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
           <Link to="/" className="text-xl font-bold tracking-tight text-slate-900 font-headline">
-            Southern Skies Research
+            Southern Skies Clinical Research
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">
@@ -97,7 +97,7 @@ export default function Layout({ children }: LayoutProps) {
       <footer className="w-full border-t border-slate-200 bg-slate-100" role="contentinfo">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
           <div>
-            <div className="text-lg font-semibold text-slate-800 font-headline mb-4">Southern Skies Research</div>
+            <div className="text-lg font-semibold text-slate-800 font-headline mb-4">Southern Skies Clinical Research</div>
             <p className="text-slate-500 text-sm leading-relaxed mb-4">
               The clinical research division of Southern Skies Dermatology &amp; Surgery. Advancing dermatological science through precision research and established patient care.
             </p>
@@ -137,7 +137,7 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
         <div className="border-t border-slate-200 py-6 text-center">
-          <p className="text-slate-500 text-xs">&copy; 2025 Southern Skies Research. A division of Southern Skies Dermatology &amp; Surgery. All rights reserved. HIPAA Compliant.</p>
+          <p className="text-slate-500 text-xs">&copy; 2025 Southern Skies Clinical Research. A division of Southern Skies Dermatology &amp; Surgery. All rights reserved. HIPAA Compliant.</p>
         </div>
       </footer>
     </div>

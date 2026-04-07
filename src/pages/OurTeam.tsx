@@ -7,7 +7,7 @@ export default function OurTeam() {
     <Layout>
       <SEO
         title="Our Team — Board-Certified Investigators"
-        description="Meet the board-certified dermatologists and research staff at Southern Skies Research. Experienced investigators with deep expertise in skin conditions and clinical trial protocols."
+        description="Meet the board-certified dermatologists and research staff at Southern Skies Clinical Research. Experienced investigators with deep expertise in skin conditions and clinical trial protocols."
         canonical="/our-team"
       />
 

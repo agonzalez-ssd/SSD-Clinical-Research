@@ -12,7 +12,7 @@ export default function ResearchRegistry() {
     <Layout>
       <SEO
         title="Research Registry — Be First to Access New Treatments"
-        description="Join the Southern Skies Research patient registry. Get matched with upcoming dermatology clinical trials. HIPAA-secure, no obligation, early access to novel therapies."
+        description="Join the Southern Skies Clinical Research patient registry. Get matched with upcoming dermatology clinical trials. HIPAA-secure, no obligation, early access to novel therapies."
         canonical="/research-registry"
       />
 

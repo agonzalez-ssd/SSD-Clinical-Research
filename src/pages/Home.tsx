@@ -18,7 +18,7 @@ export default function Home() {
     <Layout>
       <SEO
         title="Advancing Dermatology Through Clinical Research"
-        description="Southern Skies Research is the clinical research division of Southern Skies Dermatology. Board-certified investigators, HIPAA-compliant facilities, and established patient care in Birmingham, Alabama."
+        description="Southern Skies Clinical Research is the clinical research division of Southern Skies Dermatology. Board-certified investigators, HIPAA-compliant facilities, and established patient care in Birmingham, Alabama."
         canonical="/"
       />
 

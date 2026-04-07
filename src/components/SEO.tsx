@@ -13,7 +13,7 @@ export default function SEO({
   canonical,
   type = "website",
 }: SEOProps) {
-  const siteTitle = "Southern Skies Research";
+  const siteTitle = "Southern Skies Clinical Research";
   const fullTitle = `${title} | ${siteTitle}`;
   const baseUrl = "https://southernskiesresearch.com";
   const canonicalUrl = canonical ? `${baseUrl}${canonical}` : undefined;

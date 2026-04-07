@@ -7,7 +7,7 @@ export default function ForSponsors() {
     <Layout>
       <SEO
         title="For Sponsors & CROs — Site Capabilities"
-        description="Partner with Southern Skies Research for dermatology clinical trials in Alabama. 50k+ patient database, board-certified PIs, 8 locations, HIPAA-compliant infrastructure."
+        description="Partner with Southern Skies Clinical Research for dermatology clinical trials in Alabama. 50k+ patient database, board-certified PIs, 8 locations, HIPAA-compliant infrastructure."
         canonical="/for-sponsors"
       />
 

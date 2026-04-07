@@ -18,7 +18,7 @@ export default function TherapeuticAreas() {
     <Layout>
       <SEO
         title="Therapeutic Areas — Dermatology Conditions We Study"
-        description="Southern Skies Research focuses on clinical trials for atopic dermatitis, psoriasis, alopecia, vitiligo, hidradenitis suppurativa, acne, rosacea, and prurigo nodularis."
+        description="Southern Skies Clinical Research focuses on clinical trials for atopic dermatitis, psoriasis, alopecia, vitiligo, hidradenitis suppurativa, acne, rosacea, and prurigo nodularis."
         canonical="/therapeutic-areas"
       />
 

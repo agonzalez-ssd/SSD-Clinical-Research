@@ -23,7 +23,7 @@ export default function ForPatients() {
     <Layout>
       <SEO
         title="For Patients — Why Participate in Clinical Research"
-        description="Learn about participating in dermatology clinical trials at Southern Skies Research. Free care, compensation, early access to treatments, and dedicated specialist attention."
+        description="Learn about participating in dermatology clinical trials at Southern Skies Clinical Research. Free care, compensation, early access to treatments, and dedicated specialist attention."
         canonical="/for-patients"
       />
 

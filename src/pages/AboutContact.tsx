@@ -13,7 +13,7 @@ export default function AboutContact() {
     <Layout>
       <SEO
         title="About & Contact"
-        description="Learn about Southern Skies Research, the clinical research division of Southern Skies Dermatology. Contact us for study inquiries or sponsor partnerships in Birmingham, Alabama."
+        description="Learn about Southern Skies Clinical Research, the clinical research division of Southern Skies Dermatology. Contact us for study inquiries or sponsor partnerships in Birmingham, Alabama."
         canonical="/about-contact"
       />
 
@@ -26,7 +26,7 @@ export default function AboutContact() {
               Advancing Dermatology Through Rigorous Research
             </h1>
             <p className="text-lg leading-relaxed text-on-surface-variant mb-6">
-              Southern Skies Research is the clinical trial division of Southern Skies Dermatology &amp; Surgery — a premier, multi-location dermatology practice serving Alabama for over 15 years.
+              Southern Skies Clinical Research is the clinical trial division of Southern Skies Dermatology &amp; Surgery — a premier, multi-location dermatology practice serving Alabama for over 15 years.
             </p>
             <p className="text-lg leading-relaxed text-on-surface-variant mb-6">
               We established our research division to bridge the gap between cutting-edge dermatological science and the patients who need it most. By leveraging our established practice infrastructure, extensive patient database, and board-certified investigators, we provide pharmaceutical sponsors with a high-quality, research-ready site network.
