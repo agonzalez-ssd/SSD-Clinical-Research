@@ -1,8 +1,13 @@
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
-const locations = [
-  { name: "Trussville", address: "48 Medical Park Dr E #458, Trussville, AL 35173", primary: true },
+const researchSite = {
+  name: "Birmingham — Research HQ",
+  address: "48 Medical Park Dr E, Birmingham, AL 35235",
+};
+
+const referralLocations = [
+  { name: "Trussville", address: "48 Medical Park Dr E #458, Trussville, AL 35173" },
   { name: "Pell City", address: "423 23rd St N, Pell City, AL 35125" },
   { name: "Gadsden", address: "300 Medical Center Dr #402, Gadsden, AL 35903" },
   { name: "Oxford", address: "1400 Highway Dr Ste C, Oxford, AL 36203" },
@@ -58,16 +63,36 @@ export default function AboutContact() {
       {/* Locations */}
       <section className="py-24 bg-surface-container-low">
         <div className="max-w-7xl mx-auto px-8">
-          <h2 className="font-headline text-3xl font-bold text-on-surface mb-4">Our Locations</h2>
-          <p className="text-on-surface-variant text-lg mb-12 max-w-2xl">Our established dermatology practice operates across eight Alabama locations, each equipped for clinical research.</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {locations.map((loc) => (
-              <div key={loc.name} className={`p-6 rounded-xl ${loc.primary ? "bg-surface-container-lowest border-l-4 border-primary shadow-sm" : "bg-surface-container-lowest border border-outline-variant/10"}`}>
-                <h4 className="font-bold text-on-surface mb-2">{loc.name}</h4>
-                <p className="text-sm text-on-surface-variant leading-relaxed">{loc.address}</p>
-                {loc.primary && <span className="inline-block mt-3 text-xs font-bold text-primary uppercase tracking-widest">Research HQ</span>}
-              </div>
-            ))}
+          <h2 className="font-headline text-3xl font-bold text-on-surface mb-4">Research Site &amp; Referral Network</h2>
+          <p className="text-on-surface-variant text-lg mb-12 max-w-3xl">
+            All clinical trials are conducted at our dedicated research site in Birmingham, supported by an 8-location referral network across Alabama that connects patients from our established dermatology practice into active studies.
+          </p>
+
+          {/* Dedicated Research Site */}
+          <div className="mb-12">
+            <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-4">Dedicated Research Site</h3>
+            <div className="bg-surface-container-lowest border-l-4 border-primary shadow-sm p-8 rounded-xl max-w-2xl">
+              <h4 className="font-headline text-2xl font-bold text-on-surface mb-2">{researchSite.name}</h4>
+              <p className="text-on-surface-variant leading-relaxed mb-3">{researchSite.address}</p>
+              <span className="inline-block text-xs font-bold text-primary uppercase tracking-widest">Where All Clinical Trials Are Conducted</span>
+            </div>
+          </div>
+
+          {/* Referral Network */}
+          <div>
+            <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-4">8-Location Referral Network</h3>
+            <p className="text-on-surface-variant text-sm mb-6 max-w-2xl">
+              Our practice operates 8 dermatology clinics across Alabama. Patients from any of these locations can be referred into clinical trials at our Birmingham research site.
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {referralLocations.map((loc) => (
+                <div key={loc.name} className="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/10">
+                  <h4 className="font-bold text-on-surface mb-2">{loc.name}</h4>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">{loc.address}</p>
+                  <span className="inline-block mt-3 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Referral Site</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -7,7 +7,7 @@ export default function ForSponsors() {
     <Layout>
       <SEO
         title="For Sponsors & CROs — Site Capabilities"
-        description="Partner with Southern Skies Clinical Research for dermatology clinical trials in Alabama. 50k+ patient database, board-certified PIs, 8 locations, HIPAA-compliant infrastructure."
+        description="Partner with Southern Skies Clinical Research for dermatology clinical trials in Alabama. 50k+ patient database, board-certified PIs, 8-location referral network feeding 1 dedicated research site, HIPAA-compliant infrastructure."
         canonical="/for-sponsors"
       />
 
@@ -48,8 +48,8 @@ export default function ForSponsors() {
                 </div>
                 <div className="h-px bg-outline-variant/20" />
                 <div>
-                  <div className="text-3xl font-bold font-headline text-primary">8 Site</div>
-                  <div className="text-sm text-on-surface-variant uppercase tracking-wider font-semibold">Established Network</div>
+                  <div className="text-3xl font-bold font-headline text-primary">8 + 1</div>
+                  <div className="text-sm text-on-surface-variant uppercase tracking-wider font-semibold">Referral Network + Research Site</div>
                 </div>
               </div>
             </div>
@@ -112,7 +112,8 @@ export default function ForSponsors() {
             <div className="space-y-6">
               {[
                 { label: "Active Dermatology Patient Database", value: "50k+ Patients" },
-                { label: "Diverse Demographics Across Alabama", value: "8 Locations" },
+                { label: "Referral Network Across Alabama", value: "8 Locations" },
+                { label: "Dedicated Clinical Trial Site", value: "1 Research HQ" },
                 { label: "Established Provider-Patient Trust", value: "15+ Years" },
               ].map((metric) => (
                 <div key={metric.label} className="flex justify-between items-center border-b border-outline-variant/20 pb-4">
@@ -138,8 +139,8 @@ export default function ForSponsors() {
                   <div className="text-xs uppercase text-on-surface-variant tracking-widest">Integrated System</div>
                 </div>
                 <div className="bg-surface-container-lowest p-6 rounded-xl text-center">
-                  <div className="text-4xl font-headline font-extrabold text-primary mb-1">8/8</div>
-                  <div className="text-xs uppercase text-on-surface-variant tracking-widest">Sites Research-Ready</div>
+                  <div className="text-4xl font-headline font-extrabold text-primary mb-1">1</div>
+                  <div className="text-xs uppercase text-on-surface-variant tracking-widest">Dedicated Research Site</div>
                 </div>
               </div>
             </div>

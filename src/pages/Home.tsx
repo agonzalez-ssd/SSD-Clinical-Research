@@ -84,15 +84,15 @@ export default function Home() {
             </div>
             <div>
               <p className="text-3xl font-bold font-headline text-primary">8</p>
-              <p className="text-xs text-on-surface-variant uppercase tracking-widest font-semibold mt-1">Clinical Locations</p>
+              <p className="text-xs text-on-surface-variant uppercase tracking-widest font-semibold mt-1">Location Referral Network</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold font-headline text-primary">1</p>
+              <p className="text-xs text-on-surface-variant uppercase tracking-widest font-semibold mt-1">Dedicated Research Site</p>
             </div>
             <div>
               <p className="text-3xl font-bold font-headline text-primary">50k+</p>
               <p className="text-xs text-on-surface-variant uppercase tracking-widest font-semibold mt-1">Patient Database</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold font-headline text-primary">Board</p>
-              <p className="text-xs text-on-surface-variant uppercase tracking-widest font-semibold mt-1">Certified Investigators</p>
             </div>
           </div>
         </div>
@@ -204,8 +204,8 @@ export default function Home() {
                     <span className="material-symbols-outlined text-primary">location_on</span>
                   </div>
                   <div>
-                    <h4 className="font-bold text-on-surface text-lg mb-1">8 Strategic Locations</h4>
-                    <p className="text-on-surface-variant">Established dermatology clinics across Alabama with high patient volume and diverse demographics.</p>
+                    <h4 className="font-bold text-on-surface text-lg mb-1">8-Location Referral Network</h4>
+                    <p className="text-on-surface-variant">Eight established dermatology clinics across Alabama feed patients into our dedicated research site, ensuring high enrollment volume from diverse demographics.</p>
                   </div>
                 </div>
                 <div className="flex gap-6">
